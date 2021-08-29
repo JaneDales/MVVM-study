@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         init()
+//        viewModel.getTodos()
     }
 
     private fun init(){
@@ -44,6 +45,9 @@ class MainActivity : AppCompatActivity() {
             if (it.isNotEmpty()) {
                 binding.tvCounter.text = it.toString()
             }
+        }
+        viewModel.todos.observe(this) {
+            binding.tvCounter.text = it.toString()
         }
     }
 }
